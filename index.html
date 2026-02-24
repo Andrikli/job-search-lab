@@ -1,10 +1,157 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="uk">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JobSeeker</title>
 </head>
 <body>
-    HELLO WORLD!!!!!
+<header>
+    <div class="logo"><strong>JobSeeker</strong></div>
+    <nav>
+        <ul>
+            <li><a href="#">Вакансії</a></li>
+            <li><a href="#">Мій профіль</a></li>
+            <li><a href="#">Пошук роботи</a></li>
+        </ul>
+    </nav>
+    <button class="login-btn">Увійти</button>
+</header>
+<main>
+    <section class="hero">
+        <h1>Знайдіть роботу своєї мрії сьогодні</h1>
+        <p>Шукайте тисячі можливостей від провідних компаній світу</p>
+        <form class="search-form">
+            <div class="search-filters">
+                <label>Категорія</label>
+                <select>
+                    <option>Всі категорії</option>
+                    <option>Розробка</option>
+                    <option>Аналітика</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>Локація</label>
+                <select>
+                    <option>Всі локації</option>
+                    <option>Львів</option>
+                    <option>Віддалено</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>Зарплата</label>
+                <select>
+                    <option>Будь-яка</option>
+                    <option>$50k - $100k</option>
+                    <option>$100k+</option>
+                </select>
+            </div>
+            <button type="submit" class="search-btn">Пошук</button>
+        </form>
+    </section>
+
+    <section class="vacancies">
+        <h2>Останні вакансії</h2>
+        <div class="job-grid">
+            <article class="job-card">
+                <img src="img/company-logo1.png" alt="Logo" class="comp-logo">
+                <h3>Senior Frontend Developer</h3>
+                <p class="company">TechCorp Inc.</p>
+                <p class="location"> Сан-Франциско, США</p>
+                <div class="requirements">
+                    <h4>Вимоги:</h4>
+                    <ul>
+                        <li>5+ років досвіду з React</li>
+                        <li>TypeScript proficiency</li>
+                    </ul>
+                </div>
+                <div class="card-footer">
+                    <span class="salary">$120k - $160k</span>
+                    <button class="apply-btn">Відгукнутися</button>
+                </div>
+            </article>
+
+            <article class="job-card">
+                <img src="img/company-logo2.png" alt="Logo" class="comp-logo">
+                <h3>UX/UI Designer</h3>
+                <p class="company">Creative Studios</p>
+                <p class="location"> Нью-Йорк, США</p>
+                <div class="requirements">
+                    <h4>Вимоги:</h4>
+                    <ul>
+                        <li>Figma mastery</li>
+                        <li>3+ роки досвіду</li>
+                    </ul>
+                </div>
+                <div class="card-footer">
+                    <span class="salary">$90k - $120k</span>
+                    <button class="apply-btn">Відгукнутися</button>
+                </div>
+            </article>
+
+            <article class="job-card">
+                <img src="img/company-logo3.png" alt="Logo" class="comp-logo">
+                <h3>Product Manager</h3>
+                <p class="company">Innovation Labs</p>
+                <p class="location"> Віддалено</p>
+                <div class="requirements">
+                    <h4>Вимоги:</h4>
+                    <ul>
+                        <li>Agile methodology</li>
+                        <li>4+ роки досвіду</li>
+                    </ul>
+                </div>
+                <div class="card-footer">
+                    <span class="salary">$110k - $145k</span>
+                    <button class="apply-btn">Відгукнутися</button>
+                </div>
+            </article>
+        </div>
+        <button class="more-btn">Показати більше вакансій</button>
+    </section>
+
+    <section class="profile-section">
+        <h2>Ваш профіль</h2>
+        <div class="profile-content">
+            <div class="personal-info">
+                <img src="avatar.png" alt="Ilkiv Andriy" class="user-photo">
+                <h3>Ільків Андрій</h3>
+                <p>Trainee</p>
+                <p>andopkeefmf,@gmail.com</p>
+                <p>+380 50 647 75 27</p>
+            </div>
+            <div class="skills-and-resume">
+            <h3>Технічні навички</h3>
+            <div class="skill">
+                <span>React & TypeScript</span>
+                <div class="bar"><div class="fill" style="width: 95%;"></div></div>
+            </div>
+
+            <div class="resume-download">
+                <p>Завантажте повне резюме для ознайомлення з досвідом.</p>
+                <a href="files/resume.pdf" class="download-link" download>Завантажити резюме (PDF)</a>
+            </div>
+        </div>
+
+        </div>
+    </section>
+</main>
+<footer>
+    <div class="footer-content">
+        <div class="footer-about">
+            <h3>JobSeeker</h3>
+            <p>Ваш надійний партнер у пошуку роботи.</p>
+        </div>
+        <div class="footer-contact">
+            <h3>Контакти</h3>
+            <p> вул Лукаша, 5, Львів</p>
+            <p> +380 (32) 123-45-67</p>
+            <p> support@jobseeker.com</p>
+        </div>
+    </div>
+    <p class="copy">&copy; 2026 JobSeeker. Всі права застережено.</p>
+</footer>
 </body>
 </html>
