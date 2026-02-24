@@ -6,21 +6,22 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>JobSeeker</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <header>
     <div class="logo"><strong>JobSeeker</strong></div>
     <nav>
         <ul>
-            <li><a href="#">Вакансії</a></li>
-            <li><a href="#">Мій профіль</a></li>
-            <li><a href="#">Пошук роботи</a></li>
+            <li><a href="#vacancies">Вакансії</a></li>
+            <li><a href="#profile">Мій профіль</a></li>
+            <li><a href="#search">Пошук роботи</a></li>
         </ul>
     </nav>
     <button class="login-btn">Увійти</button>
 </header>
 <main>
-    <section class="hero">
+    <section id="search" class="hero">
         <h1>Знайдіть роботу своєї мрії сьогодні</h1>
         <p>Шукайте тисячі можливостей від провідних компаній світу</p>
         <form class="search-form">
@@ -44,6 +45,7 @@
                 <label>Зарплата</label>
                 <select>
                     <option>Будь-яка</option>
+                    <option>$0 - $50k</option>
                     <option>$50k - $100k</option>
                     <option>$100k+</option>
                 </select>
@@ -52,11 +54,11 @@
         </form>
     </section>
 
-    <section class="vacancies">
+    <section id="vacancies" class="vacancies">
         <h2>Останні вакансії</h2>
         <div class="job-grid">
             <article class="job-card">
-                <img src="img/company-logo1.png" alt="Logo" class="comp-logo">
+                <img src="working-time.png" alt="Logo" class="comp-logo">
                 <h3>Senior Frontend Developer</h3>
                 <p class="company">TechCorp Inc.</p>
                 <p class="location"> Сан-Франциско, США</p>
@@ -74,7 +76,7 @@
             </article>
 
             <article class="job-card">
-                <img src="img/company-logo2.png" alt="Logo" class="comp-logo">
+                <img src="working-time.png" alt="Logo" class="comp-logo">
                 <h3>UX/UI Designer</h3>
                 <p class="company">Creative Studios</p>
                 <p class="location"> Нью-Йорк, США</p>
@@ -92,7 +94,7 @@
             </article>
 
             <article class="job-card">
-                <img src="img/company-logo3.png" alt="Logo" class="comp-logo">
+                <img src="working-time.png" alt="Logo" class="comp-logo">
                 <h3>Product Manager</h3>
                 <p class="company">Innovation Labs</p>
                 <p class="location"> Віддалено</p>
@@ -112,29 +114,56 @@
         <button class="more-btn">Показати більше вакансій</button>
     </section>
 
-    <section class="profile-section">
-        <h2>Ваш профіль</h2>
+    <section id="profile" class="profile-section">
+        <h2>Ваш професійний профіль</h2>
         <div class="profile-content">
-            <div class="personal-info">
-                <img src="avatar.png" alt="Ilkiv Andriy" class="user-photo">
-                <h3>Ільків Андрій</h3>
-                <p>Trainee</p>
-                <p>andopkeefmf,@gmail.com</p>
-                <p>+380 50 647 75 27</p>
-            </div>
-            <div class="skills-and-resume">
-            <h3>Технічні навички</h3>
-            <div class="skill">
-                <span>React & TypeScript</span>
-                <div class="bar"><div class="fill" style="width: 95%;"></div></div>
+            <div class="profile-left">
+                <div class="personal-info">
+                    <img src="user.png" alt="Ilkiv Andriy" class="user-photo">
+                    <h3>Ільків Андрій</h3>
+                    <p class="user-title">Trainee Software Engineer</p>
+                    <div class="user-contacts">
+                        <p>📩 andopkeefmf@gmail.com</p>
+                        <p>📞 +380 50 647 75 27</p>
+                        <p>📍 Львів, Україна</p>
+                    </div>
+                </div>
+
+                <div class="experience-edu">
+                    <div class="exp-item">
+                        <h4>💼 Досвід роботи</h4>
+                        <p><strong>Lead Developer</strong><br>TechCorp Inc. • 2020 - Тепер</p>
+                        <p><strong>Software Engineer</strong><br>StartupXYZ • 2017 - 2020</p>
+                    </div>
+                    <div class="edu-item">
+                        <h4>🎓 Освіта</h4>
+                        <p><strong> Computer Science</strong><br>Національний університет «Львівська політехніка» • 2024 - 2028</p>
+                    </div>
+                </div>
             </div>
 
-            <div class="resume-download">
-                <p>Завантажте повне резюме для ознайомлення з досвідом.</p>
-                <a href="files/resume.pdf" class="download-link" download>Завантажити резюме (PDF)</a>
-            </div>
-        </div>
+            <div class="profile-right">
+                <div class="skills-card">
+                    <h3>🛠 Технічні навички</h3>
+                    <div class="skill">
+                        <div class="skill-info"><span>React & TypeScript</span><span>95%</span></div>
+                        <div class="bar"><div class="fill" style="width: 95%;"></div></div>
+                    </div>
+                    <div class="skill">
+                        <div class="skill-info"><span>Node.js & Express</span><span>90%</span></div>
+                        <div class="bar"><div class="fill" style="width: 90%;"></div></div>
+                    </div>
+                    <div class="skill">
+                        <div class="skill-info"><span>Cloud Infrastructure (AWS)</span><span>85%</span></div>
+                        <div class="bar"><div class="fill" style="width: 85%;"></div></div>
+                    </div>
+                </div>
 
+                <div class="resume-download-card">
+                    <p>Завантажте повне резюме з детальним описом проектів.</p>
+                    <a href="files/resume.pdf" class="download-link" download>Download Resume (PDF)</a>
+                </div>
+            </div>
         </div>
     </section>
 </main>
