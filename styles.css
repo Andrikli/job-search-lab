@@ -421,3 +421,17 @@ footer {
         font-size: 32px;
     }
 }
+.open-chat-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    display: none; /* Спочатку прихована */
+    z-index: 1000;
+}
