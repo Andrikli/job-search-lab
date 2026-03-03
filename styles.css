@@ -1,10 +1,9 @@
 html {
-    scroll-behavior: smooth; /* Робить прокрутку плавною при натисканні на посилання */
+    scroll-behavior: smooth;
 }
 
-/* Додатково: враховуємо висоту фіксованої шапки */
 section {
-    scroll-margin-top: 80px; /* Відступ зверху, щоб заголовок секції не ховався під Header */
+    scroll-margin-top: 80px;
 }
 :root {
     --primary: #2563eb;
@@ -30,7 +29,6 @@ body {
     line-height: 1.6;
 }
 
-/* HEADER */
 header {
     background: var(--white);
     display: flex;
@@ -76,7 +74,6 @@ header nav a:hover {
     transition: 0.3s;
 }
 
-/* HERO SECTION */
 .hero {
     background: linear-gradient(135deg, var(--primary), #3b82f6);
     color: white;
@@ -129,7 +126,6 @@ header nav a:hover {
     cursor: pointer;
 }
 
-/* JOB VACANCIES GRID */
 .vacancies {
     padding: 10rem 6% 5rem;
 }
@@ -182,7 +178,6 @@ header nav a:hover {
     cursor: pointer;
 }
 
-/* PROFILE SECTION - 2 COLUMNS */
 .profile-section {
     padding: 5rem 6%;
 }
@@ -296,7 +291,6 @@ header nav a:hover {
     transform: scale(1.05);
 }
 
-/* FOOTER */
 footer {
     background: #0f172a;
     color: white;
@@ -317,7 +311,79 @@ footer {
     padding-top: 2rem;
 }
 
-/* RESPONSIVE DESIGN */
+.side-chat {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 300px;
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+    overflow: hidden;
+}
+
+.chat-header {
+    background: var(--primary);
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+}
+
+.close-chat {
+    color: white;
+    text-decoration: none;
+    font-size: 24px;
+    line-height: 1;
+}
+
+.chat-messages {
+    height: 250px;
+    padding: 15px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: #f1f5f9;
+}
+
+.msg {
+    padding: 8px 12px;
+    border-radius: 12px;
+    font-size: 13px;
+    max-width: 80%;
+}
+
+.msg.bot {
+    background: var(--white);
+    align-self: flex-start;
+}
+
+.msg.user {
+    background: var(--primary);
+    color: white;
+    align-self: flex-end;
+}
+
+.chat-input {
+    padding: 10px;
+    display: flex;
+    gap: 5px;
+    border-top: 1px solid #e2e8f0;
+}
+
+.chat-input input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+}
+
 @media (max-width: 1024px) {
     .job-grid {
         grid-template-columns: repeat(2, 1fr);
