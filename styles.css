@@ -435,3 +435,30 @@ footer {
     display: none; /* Спочатку прихована */
     z-index: 1000;
 }
+
+.applied-history-card {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: #f1f5f9;
+    border-radius: var(--radius);
+}
+
+.applied-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.cancel-btn {
+    background: #ef4444;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}

@@ -12,22 +12,23 @@ const allVacancies = [
     { title: "Trainee Python Dev", company: "StartUp", location: "Львів", salary: "$30k", salaryLevel: "$0 - $50k", category: "Розробка", req: ["Python Basics", "FastAPI"] }
 ];
 
-// Змінні стану
+let appliedVacancies = [];
 let currentDisplayLimit = 3;
 let currentFilteredData = [...allVacancies];
 
-// DOM елементи
 const jobGrid = document.getElementById('jobGrid');
 const showMoreBtn = document.getElementById('showMoreBtn');
 
 function renderVacancies(data, limit) {
     jobGrid.innerHTML = ''; // Очищення перед рендером [cite: 177]
 
-    // Використання циклу for за методичкою [cite: 204, 206]
     for (let i = 0; i < data.length && i < limit; i++) {
         const job = data[i];
         const card = document.createElement('article'); // [cite: 107]
         card.className = 'job-card';
+
+        // Перевірка статусу подачі [cite: 224]
+        const isApplied = appliedVacancies.some(v => v.title === job.title);
 
         card.innerHTML = `
             <img src="working-time.png" alt="Logo" class="comp-logo">
@@ -37,28 +38,28 @@ function renderVacancies(data, limit) {
             <div class="requirements">
                 <h4>Вимоги:</h4>
                 <ul>
-                    ${job.req.map(r => `<li>${r}</li>`).join('')}
+                    ${job.req ? job.req.map(r => `<li>${r}</li>`).join('') : ''}
                 </ul>
             </div>
             <div class="card-footer">
                 <span class="salary">${job.salary}</span>
-                <button class="apply-btn">Відгукнутися</button>
+                <button class="apply-btn" ${isApplied ? 'disabled style="background: #10b981"' : ''}>
+                    ${isApplied ? 'Подано' : 'Відгукнутися'}
+                </button>
             </div>
         `;
 
-        // Обробка події "Подати заявку" (Завдання 2) [cite: 119, 192]
         const applyBtn = card.querySelector('.apply-btn');
         applyBtn.addEventListener('click', function() {
-            this.textContent = "Подано"; // [cite: 181]
-            this.style.background = "#10b981"; // [cite: 298]
-            this.disabled = true;
-            alert(`Успішно! Ваш відгук на позицію ${job.title} надіслано.`);
+            if (!isApplied) {
+                applyToJob(job);
+            }
         });
 
         jobGrid.appendChild(card); // [cite: 108]
     }
 
-    // Керування видимістю кнопки "Більше"
+    // Керування кнопкою "Більше" [cite: 270]
     if (limit >= data.length) {
         showMoreBtn.style.display = 'none';
     } else {
@@ -66,40 +67,76 @@ function renderVacancies(data, limit) {
     }
 }
 
+function applyToJob(job) {
+    appliedVacancies.push(job);
+    alert(`Успішно! Ваш відгук на позицію "${job.title}" надіслано.`); //
+    renderVacancies(currentFilteredData, currentDisplayLimit);
+    renderAppliedHistory();
+}
+
+function renderAppliedHistory() {
+    const container = document.getElementById('appliedList');
+    if (!container) return;
+
+    if (appliedVacancies.length === 0) {
+        container.innerHTML = '<p class="empty-msg">Ви ще не подали жодної заявки.</p>';
+        return;
+    }
+
+    let html = "";
+    let i = 0;
+    while (i < appliedVacancies.length) { // Використання циклу while [cite: 210]
+        const job = appliedVacancies[i];
+        html += `
+            <div class="applied-item">
+                <span><strong>${job.title}</strong> — ${job.company}</span>
+                <button class="cancel-btn" onclick="cancelApplication(${i})">Скасувати</button>
+            </div>
+        `;
+        i++;
+    }
+    container.innerHTML = html;
+}
+
+window.cancelApplication = function(index) {
+    const jobTitle = appliedVacancies[index].title;
+    appliedVacancies.splice(index, 1);
+    alert(`Заявку на вакансію "${jobTitle}" скасовано.`);
+    renderVacancies(currentFilteredData, currentDisplayLimit);
+    renderAppliedHistory();
+};
+
+
 const searchBtn = document.querySelector('.search-btn');
 
 searchBtn.addEventListener('click', function(event) {
-    event.preventDefault(); // Запобігання перезавантаженню [cite: 198]
+    event.preventDefault(); // [cite: 198]
 
     const selectedCat = document.getElementById('categorySelect').value;
     const selectedLoc = document.getElementById('locationSelect').value;
     const selectedSal = document.getElementById('salarySelect').value;
 
-    // Логіка фільтрації з використанням умов [cite: 134]
     currentFilteredData = allVacancies.filter(job => {
         const matchCat = (selectedCat === "Всі категорії" || job.category === selectedCat);
         const matchLoc = (selectedLoc === "Всі локації" || job.location === selectedLoc);
         const matchSal = (selectedSal === "Будь-яка" || job.salaryLevel === selectedSal);
-
         return matchCat && matchLoc && matchSal;
     });
 
-    currentDisplayLimit = 3; // Скидаємо ліміт при новому пошуку
+    currentDisplayLimit = 3;
     renderVacancies(currentFilteredData, currentDisplayLimit);
 });
 
 showMoreBtn.addEventListener('click', () => {
-    currentDisplayLimit = allVacancies.length; // Показуємо всі
+    currentDisplayLimit = currentFilteredData.length;
     renderVacancies(currentFilteredData, currentDisplayLimit);
 });
-
 
 const sideChat = document.querySelector('.side-chat');
 const closeChatBtn = document.querySelector('.close-chat');
 const openChatBtn = document.getElementById('openChatBtn');
 
 function toggleChat() {
-    // Реалізація логіки if-else для перевірки стану видимості [cite: 270]
     if (sideChat.style.display === 'none' || sideChat.style.display === '') {
         sideChat.style.display = 'flex';
         openChatBtn.style.display = 'none';
@@ -116,5 +153,5 @@ closeChatBtn.addEventListener('click', (e) => {
 
 openChatBtn.addEventListener('click', toggleChat);
 
-// Початковий запуск сторінки
 renderVacancies(currentFilteredData, currentDisplayLimit);
+renderAppliedHistory();
