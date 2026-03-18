@@ -10,11 +10,11 @@ function ProfilePage({ appliedJobs, setAppliedJobs }) {
 
     return (
         <section id="profile" className="profile-section">
-            <h2>Ваш професійний профіль</h2>
+            <h2>Ваш профіль</h2>
             <div className="profile-content">
                 <div className="profile-left">
                     <div className="personal-info">
-                        <img src="/user.png" alt="User" className="user-photo" />
+                        <img src="user.png" alt="User" className="user-photo" />
                         <h3>Ільків Андрій</h3>
                         <p className="user-title">Senior Software Engineer</p>
                         <div className="user-contacts">

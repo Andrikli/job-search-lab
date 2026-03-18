@@ -4,7 +4,11 @@ import React from 'react';
 function VacancyCard({ job, isApplied, onApply }) {
     return (
         <article className="job-card">
-            <img src="/working-time.png" alt="Logo" className="comp-logo" />
+            <img
+                src={process.env.PUBLIC_URL + '/working-time.png'}
+                alt="Company Logo"
+                className="comp-logo"
+            />
             <h3>{job.title}</h3>
             <p className="company">{job.company}</p>
             <p className="location">📍 {job.location}</p>
