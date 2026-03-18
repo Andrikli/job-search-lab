@@ -9,7 +9,7 @@ function App() {
     const [isChatOpen, setIsChatOpen] = useState(false);
 
     return (
-        <Router>
+        <Router basename="/job-search-lab">
             <header>
                 <div className="logo"><strong>JobSeeker</strong></div>
                 <nav>
