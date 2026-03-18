@@ -1,0 +1,5 @@
+node_modules/
+job-seeker-react/node_modules/
+build/
+.idea/
+*.iml

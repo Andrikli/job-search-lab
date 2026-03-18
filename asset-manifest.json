@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Andrikli/job-search-lab/static/css/main.9bfea8d5.css",
+    "main.js": "/Andrikli/job-search-lab/static/js/main.e86c34ff.js",
+    "static/js/453.c205da04.chunk.js": "/Andrikli/job-search-lab/static/js/453.c205da04.chunk.js",
+    "index.html": "/Andrikli/job-search-lab/index.html",
+    "main.9bfea8d5.css.map": "/Andrikli/job-search-lab/static/css/main.9bfea8d5.css.map",
+    "main.e86c34ff.js.map": "/Andrikli/job-search-lab/static/js/main.e86c34ff.js.map",
+    "453.c205da04.chunk.js.map": "/Andrikli/job-search-lab/static/js/453.c205da04.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9bfea8d5.css",
+    "static/js/main.e86c34ff.js"
+  ]
+}
